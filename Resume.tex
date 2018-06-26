@@ -1,0 +1,235 @@
+%%% LaTeX Template: Designer's CV
+%%%
+%%% Source: http://www.howtotex.com/
+%%% Feel free to distribute this template, but please keep the referal to HowToTeX.com.
+%%% Date: March 2012
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document properties and packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt,final]{memoir}
+
+% misc
+\renewcommand{\familydefault}{Garamond}	% font
+\pagestyle{empty}					% no pagenumbering
+\setlength{\parindent}{0pt}			% no paragraph indentation
+
+
+% required packages (add your own)
+\usepackage{flowfram}										% column layout
+\usepackage[top=1cm,left=1cm,right=1cm,bottom=1cm]{geometry}% margins
+\usepackage{graphicx}										% figures
+\usepackage{url}											% URLs
+\usepackage[usenames,dvipsnames]{xcolor}					% color
+\usepackage{multicol}										% columns env.
+	\setlength{\multicolsep}{0pt}
+\usepackage{paralist}										% compact lists
+\usepackage{tikz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create column layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define length commands
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+% frame setup (flowfram package)
+% left frame
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\LeftMainSep}
+	\setlength{\LeftMainSep}{0.2\textwidth}
+	\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+ 
+% content of the static frame
+\begin{staticcontents}{1}
+\hfill
+\tikz{%
+	\draw[loosely dotted,color=RoyalBlue,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% right frame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define macros (for convience)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Sep}{\vspace{1.4em}}
+\newcommand{\SmallSep}{\vspace{0.5em}}
+
+\newenvironment{AboutMe}
+	{\ignorespaces\textbf{\color{RoyalBlue} About me}}
+	{\Sep\ignorespacesafterend}
+	
+\newenvironment{CurrentProject}
+	{\ignorespaces\textbf{\color{RoyalBlue} Current Personal Projects}}
+	{\Sep\ignorespacesafterend}	
+	
+\newcommand{\CVSection}[1]
+	{\Large\textbf{#1}\par
+	\SmallSep\normalsize\normalfont}
+
+\newcommand{\CVItem}[1]
+	{\textbf{\color{RoyalBlue} #1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Left frame
+%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+	\hfill
+	\includegraphics[width=0.6\columnwidth]{SS.png}
+	\vspace{-7cm}
+\end{figure}
+
+\begin{flushright}\small
+	Stephen A. Slatky \\
+	\email{steve.slatky@gmail.com}  \\
+	\url{www.steveslatky.me} \\
+	(908)-917-8055
+\end{flushright}\normalsize
+\framebreak
+
+
+% Right frame
+%%%%%%%%%%%%%%%%%%%%
+\Huge\bfseries {\color{RoyalBlue} Stephen Slatky} \\
+\Large\bfseries  Computer Scientist \\
+
+\normalsize\normalfont
+
+% Project
+\begin{CurrentProject}
+Converting past Machine Learning algorithms from python3 code to 
+Rust. The objective is to increase speed and maintainability of 
+the code base in addition to increase my skill in Rust. 
+\end{CurrentProject}
+
+% Education
+\CVSection{Education}
+\CVItem{2013 - 2018, Drexel University}\\
+Bachelor of Computer Science
+\Sep
+
+% Experience
+\CVSection{Experience}
+
+\CVItem{1Q - Senior Design}{, Project Manger -}{ September to  April 2018}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+    \item Designed responsive web interface for mobile and desktop environments
+    \item Lead small front-end team to complete project on time 
+\end{compactitem}
+\SmallSep
+
+\CVItem{Drexel Writing Center}{, Peer Reader -}{ September to  April 2017}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+    \item Aided students to improve their writings and understand their ideas
+    \item Assisted international students to understand English grammar 
+\end{compactitem}
+\SmallSep
+
+\CVItem{Delaware Investments}{, Jr. Developer -}{ September to  April 2016}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+    \item Responsible for data mining by pre-processing into SQL database from multiple large data warehouses
+    \item Designed and built user interface to display data in an easy to use interface for business stakeholders
+\end{compactitem}
+
+\SmallSep
+
+\CVItem{MMS Education}{, Application Programmer -}{ September to  March, 2015}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+    \item Generated reports from PostgreSQL databases
+    \item Designed and tested implementation of new Git work flow
+    \item Worked with suppliers to apply content updates to websites
+\end{compactitem}
+
+\SmallSep
+
+\CVItem{GSK}{, IT Analysts -}{ September to May 2014}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+    \item Head service owner for company wide mobile app publishing for iOS, Android, and Windows phone
+    \item Implemented and maintained internet cookie consent mechanism for all GSK websites to be in compliance with the EU cookie law
+    \item Maintained web font serviced for web developers
+\end{compactitem}
+
+\Sep
+
+% Skills
+\CVSection{Skills}
+\CVItem{Platforms}
+\begin{multicols}{3}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+	\item GNU Linux  
+	\item MacOS 
+	\item Windows
+\end{compactitem}
+\end{multicols}
+\SmallSep
+
+
+\CVItem{Programming Languages}
+\begin{multicols}{4}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+	\item Python2/3  
+	\item C 
+	\item {C\#}
+	\item C++
+	\item Rust 
+	\item Java
+	\item JavaScript 
+	\item Haskell
+	\item PHP 
+	\item SQL
+	\item Bash/Fish
+	\item HTML
+	\item Json
+	\item Yaml
+	\item + Dabbled in others 
+\end{compactitem}
+\end{multicols}
+
+\SmallSep
+
+\CVItem{Computer software}
+\begin{multicols}{4}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+	\item Tensor Flow 
+	\item Keras
+	\item OmniGraffle 
+	\item Sketch
+	\item \LaTeX 
+	\item Docker 
+	\item Photoshop 
+	\item Wireshark
+	\item Virtual Box
+	\item Jetbrains IDEs
+	\item Eclipise 
+	\item Visual Studio
+	\item Vim
+	\item Emacs
+	\item Xcode
+\end{compactitem}
+\end{multicols}
+\SmallSep
+
+\framebreak
+\clearpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
